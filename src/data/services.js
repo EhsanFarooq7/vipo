@@ -1,0 +1,158 @@
+const PAGES = {
+    home: "home",
+    admin: "admin",
+    bizdev: "bizdev",
+    ai: "ai",
+    wholesale: "wholesale",
+    contact: "contact",
+};
+
+const NAV = [
+    { id: "home", label: "Home" },
+    { id: "admin", label: "Admin Support" },
+    { id: "bizdev", label: "Business Development" },
+    { id: "ai", label: "AI & Automation" },
+    { id: "wholesale", label: "Wholesale" },
+    { id: "contact", label: "Contact" },
+];
+
+const SERVICE_DATA = {
+    admin: {
+        tag: "Service 01",
+        title: "Administration Support",
+        titleHighlight: "Administration",
+        subtitle: "Reclaim your time. Focus on what you do best.",
+        desc: "Perfect for therapists, consultants, coaches and busy business owners who need expert help managing appointments, enquiries, invoicing and day-to-day administration — without hiring a full-time member of staff.",
+        icon: "📋",
+        formTitle: "Administration Support Eligibility",
+        about: {
+            heading: "What We Handle For You",
+            body: "Running a business means wearing many hats — but drowning in admin shouldn't be one of them. Our administration support service takes the repetitive, time-consuming tasks off your plate so you can focus on delivering value to your clients. Whether you manage a handful of appointments or a busy practice with dozens of daily bookings, we tailor our support to your workflow.",
+            body2: "Many of our clients save between 5 and 10 hours every single week — time they reinvest into growing their practice, serving clients better, or simply reducing stress.",
+        },
+        features: [
+            { icon: "📅", text: "Diary and calendar management — zero double-bookings, ever" },
+            { icon: "✉️", text: "Professional email triage and response handling" },
+            { icon: "🔄", text: "Appointment scheduling, rescheduling and cancellations" },
+            { icon: "💷", text: "Invoicing, billing and payment follow-ups" },
+            { icon: "📞", text: "Client enquiry handling and first-response management" },
+            { icon: "📁", text: "Document preparation and basic record keeping" },
+        ],
+        steps: [
+            { title: "Discovery Call", body: "We learn about your business, workflows and pain points in a free 30-minute session." },
+            { title: "Custom Setup", body: "We map your processes and configure our systems to match how you work." },
+            { title: "Handover", body: "We take over the agreed tasks — you start reclaiming your time within days." },
+            { title: "Ongoing Support", body: "Regular check-ins ensure everything runs smoothly as your business evolves." },
+        ],
+        questions: [
+            { q: "How many client appointments do you manage each week?", opts: ["Less than 10", "10–20", "20–50", "50+"] },
+            { q: "Which administrative tasks take up most of your time?", opts: ["Diary Management", "Email Management", "Appointment Changes", "Invoicing & Billing", "All of the Above"] },
+            { q: "Do you currently have administrative support?", opts: ["Yes", "No"] },
+            { q: "If you could save 5–10 hours per week, would that help you focus more on clients and growth?", opts: ["Yes", "No"] },
+        ],
+    },
+    bizdev: {
+        tag: "Service 02",
+        title: "Business Development",
+        titleHighlight: "Business Development",
+        subtitle: "More leads. More appointments. More sales.",
+        desc: "Need more customers, appointments or sales opportunities? Our business development team identifies the right prospects, starts meaningful conversations and generates qualified opportunities — so your pipeline never runs dry.",
+        icon: "📈",
+        formTitle: "Business Development Eligibility",
+        about: {
+            heading: "Growing Your Business, Systematically",
+            body: "Most business owners know they need more clients — but finding, approaching and converting them is a full-time job in itself. Our business development service handles the front-end of your sales pipeline: researching prospects, initiating contact and booking qualified appointments directly into your calendar.",
+            body2: "We work within your target market and brand voice, so every conversation feels natural and on-brand. Our clients typically see results within 30–60 days.",
+        },
+        features: [
+            { icon: "🎯", text: "Targeted prospect identification in your ideal market" },
+            { icon: "💬", text: "Professional outreach and conversation-starting on your behalf" },
+            { icon: "📆", text: "Qualified appointment setting with decision-makers" },
+            { icon: "🔁", text: "Repeat customer nurturing and re-engagement campaigns" },
+            { icon: "📊", text: "Weekly pipeline reporting and performance updates" },
+            { icon: "⚡", text: "Designed to deliver measurable results within 90 days" },
+        ],
+        steps: [
+            { title: "Ideal Client Profile", body: "We define your perfect prospect — industry, role, company size, geography and pain point." },
+            { title: "List Building", body: "We research and build a verified prospect list aligned to your ICP." },
+            { title: "Outreach Campaigns", body: "Multi-channel outreach begins: email, LinkedIn and phone where appropriate." },
+            { title: "Appointment Handover", body: "Qualified leads are delivered as booked appointments straight into your diary." },
+        ],
+        questions: [
+            { q: "What is your primary goal?", opts: ["More Leads", "More Sales", "More Appointments", "More Repeat Customers"] },
+            { q: "How many new clients would you ideally like to acquire each month?", opts: ["1–5", "5–10", "10–20", "20+"] },
+            { q: "Do you currently have a lead generation system?", opts: ["Yes", "No"] },
+            { q: "Are you actively looking to grow within the next 90 days?", opts: ["Yes", "No"] },
+        ],
+    },
+    ai: {
+        tag: "Service 03",
+        title: "AI & Automation",
+        titleHighlight: "AI & Automation",
+        subtitle: "Systems that work while you sleep.",
+        desc: "Reduce repetitive tasks, improve response times and create intelligent workflows that run around the clock — without adding headcount or burning yourself out.",
+        icon: "🤖",
+        formTitle: "AI & Automation Eligibility",
+        about: {
+            heading: "Why Automation Changes Everything",
+            body: "Every business has tasks that are done the same way, time after time — answering the same enquiries, sending the same follow-ups, booking the same types of appointments. These tasks are perfect candidates for automation. We identify them, design the right workflow and implement it using proven, reliable tools.",
+            body2: "The result? Your business responds faster, operates more consistently and costs less to run — freeing you and your team to focus on work that actually requires a human.",
+        },
+        features: [
+            { icon: "💬", text: "AI-powered customer enquiry handling and chatbots" },
+            { icon: "📆", text: "Automated appointment booking and confirmation flows" },
+            { icon: "📧", text: "Smart follow-up sequences for leads and existing clients" },
+            { icon: "🔗", text: "CRM integrations and data pipeline automation" },
+            { icon: "📣", text: "Social media cross-posting and content scheduling" },
+            { icon: "🔔", text: "Instant notification systems and internal workflow triggers" },
+        ],
+        steps: [
+            { title: "Workflow Audit", body: "We map your current processes and pinpoint the highest-value automation opportunities." },
+            { title: "Tool Selection", body: "We choose the right platforms (Make, Zapier, AI APIs) for your specific needs." },
+            { title: "Build & Test", body: "We build, test and refine each automation before handing it over." },
+            { title: "Monitor & Optimise", body: "We monitor live automations and improve them as your business grows." },
+        ],
+        questions: [
+            { q: "Which area would you most like to automate?", opts: ["Customer Enquiries", "Appointment Booking", "Follow-Up Messages", "Lead Generation", "Administration"] },
+            { q: "Approximately how many hours per week are spent on repetitive tasks?", opts: ["Less than 5", "5–10", "10–20", "20+"] },
+            { q: "Do you currently use any automation software?", opts: ["Yes", "No"] },
+            { q: "Would reducing manual work help you save time and reduce costs?", opts: ["Yes", "No"] },
+        ],
+    },
+    wholesale: {
+        tag: "Service 04",
+        title: "Wholesale & Distribution",
+        titleHighlight: "Wholesale & Distribution",
+        subtitle: "Premium natural products. Africa-wide opportunity.",
+        desc: "An established and successful Indian manufacturer of natural personal care products is seeking wholesalers, distributors, importers and retail partners throughout Africa.",
+        icon: "🌿",
+        formTitle: "Wholesale Partnership Eligibility",
+        about: {
+            heading: "A Premium Range for a Growing Market",
+            body: "The demand for natural, organic personal care products across Africa is growing rapidly. Our manufacturing partner — an established, certified producer based in India — offers a comprehensive range of high-quality products formulated for diverse skin types and hair textures.",
+            body2: "We are actively seeking serious trade partners who can help bring these products to market. Whether you run a retail chain, a pharmacy network, or operate as a national importer, we want to hear from you.",
+        },
+        features: [
+            { icon: "🧼", text: "Organic soaps crafted from natural ingredients" },
+            { icon: "💆", text: "Herbal hair care products with proven consumer demand" },
+            { icon: "✨", text: "Natural skincare lines suitable for all skin types" },
+            { icon: "📦", text: "Full product lines available — single SKU to full catalogue" },
+            { icon: "🌍", text: "Exclusive country distributor opportunities available" },
+            { icon: "🤝", text: "Long-term partnership approach with dedicated support" },
+        ],
+        steps: [
+            { title: "Express Interest", body: "Complete the eligibility form and tell us about your distribution network." },
+            { title: "Introductory Call", body: "We arrange a call with the manufacturer's trade team to discuss terms and logistics." },
+            { title: "Sample Order", body: "Receive a product sample pack to evaluate quality before committing." },
+            { title: "Partnership Agreement", body: "Finalise your distribution tier and begin placing orders." },
+        ],
+        questions: [
+            { q: "Which best describes your business?", opts: ["Retail Store", "Pharmacy", "Beauty Supply Store", "Wholesaler", "Distributor", "Importer", "Online Retailer", "Other"] },
+            { q: "Which country or countries do you currently serve?", opts: ["Nigeria", "Ghana", "Kenya", "South Africa", "Uganda", "Tanzania", "Other"] },
+            { q: "Which products are you interested in?", opts: ["Organic Soaps", "Herbal Hair Care Products", "Natural Skincare Products", "Multiple Product Lines", "All Products"], multi: true },
+            { q: "What type of partnership interests you?", opts: ["Purchasing products for resale", "Wholesale purchasing", "Becoming a regional distributor", "Becoming an exclusive country distributor", "Exploring a long-term distribution partnership", "I'd like more information first"] },
+        ],
+    },
+};
+
+export { PAGES, NAV, SERVICE_DATA };
