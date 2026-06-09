@@ -595,11 +595,12 @@ body {
 
 .form-drawer {
   position: absolute;
-  top: 20px; left: 50%; bottom: 20px;
+  top: 80px; left: 50%; 
+  bottom: 40px;
   transform: translateX(-50%);
   width: calc(100% - 40px);
   max-width: 600px;
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 120px);
   background: var(--navy);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -609,9 +610,10 @@ body {
   animation: popIn .3s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes popIn {
-  from { opacity: 0; transform: translateX(-50%) scale(0.96); }
+  from { opacity: 0; transform: translateX(-50%) scale(0.50); }
   to   { opacity: 1; transform: translateX(-50%) scale(1); }
 }
+
 .drawer-handle {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 32px 16px;
@@ -640,7 +642,7 @@ body {
 }
 .drawer-close:hover { border-color: var(--gold); color: var(--gold); }
 
-.form-inner { padding: 28px 32px 40px; }
+.form-inner { padding: 20px 32px 40px; }
 
 .q-block { margin-bottom: 24px; }
 .q-label {
@@ -705,6 +707,8 @@ body {
   font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 10px;
 }
 .success-panel p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+
 /* ── CONTACT PAGE ── */
 .contact-hero-section { max-width: 680px; margin: 0 auto; padding: 80px 24px 60px; text-align: center; }
 .contact-hero-section h1 {
@@ -873,5 +877,122 @@ body {
   padding: 28px 24px;
   font-size: 0.76rem;
   color: var(--muted);
+}
+
+@media (max-width: 767px) {
+
+  /* 1. Ensure the backdrop spans the entire mobile viewport screen perfectly */
+  .form-drawer-bg {
+    position: fixed !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important; /* Forces it above everything else on the page */
+  }
+
+  /* 2. Force the drawer to sit beautifully at the bottom of the screen */
+  .form-drawer {
+    position: fixed !important;
+    top:0 !important; /* Let bottom positioning take precedence */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    /* This gives it a perfect, predictable height (80% of screen height) */
+    height: 80vh !important;
+    max-height: 80vh !important;
+
+    /* Reset desktop alignments */
+    transform: none !important;
+    margin: 0 !important;
+
+    /* Styling adjustments */
+    border-radius: 24px 24px 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    z-index: 100000 !important;
+
+    /* Animation override */
+    animation: mobileSlideUp .3s cubic-bezier(.22, 1, .36, 1) forwards !important;
+  }
+
+  /* 3. New mobile animation without desktop's translateX conflict */
+  @keyframes mobileSlideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+
+  /* 4. Fix paddings so text doesn't touch phone edges */
+  .drawer-handle,
+  .form-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+  /* 1. Reset the backdrop container layout */
+  .form-drawer-bg {
+    display: flex !important;
+    align-items: flex-end !important; /* Forces layout to start at the bottom screen edge */
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Completely redefine the drawer for tiny screens */
+  .form-drawer {
+    /* Kill all absolute/desktop positioning completely */
+    position: relative !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: auto !important;
+    transform: none !important; /* Removes the desktop translateX(-50%) which breaks 320px widths */
+    margin: 0 !important;
+
+    /* Force size fitting for 320px - 425px screens */
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 85vh !important;     /* Forces it to open up 85% of the screen height */
+    max-height: 85vh !important;
+
+    /* Clean up mobile borders */
+    border-radius: 20px 20px 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+
+    /* Fresh animation built only for small mobile screens */
+    animation: mobileSlideUp 0.3s cubic-bezier(.22,1,.36,1) forwards !important;
+  }
+
+  /* 3. Dedicated mobile animation keyframe */
+  @keyframes mobileSlideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  /* 4. Shrink internal spacing so text doesn't clip on 320px screens */
+  .drawer-handle {
+    padding: 16px 20px 12px !important;
+  }
+  .form-inner {
+    padding: 16px 20px 30px !important;
+  }
+  .opt {
+    padding: 10px 12px !important; /* Slimmer buttons for small screens */
+  }
 }
 `;
