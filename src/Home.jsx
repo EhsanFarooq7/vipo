@@ -1,9 +1,9 @@
 export default function HomePage({ navigate }) {
     const cards = [
-        { id: "admin", icon: "📋", title: "Administration Support", desc: "Expert diary, email and invoicing management so you can focus on your clients." },
-        { id: "bizdev", icon: "📈", title: "Business Development", desc: "We find, approach and qualify prospects — and book them into your calendar." },
-        { id: "ai", icon: "🤖", title: "AI & Automation", desc: "Intelligent workflows that reduce repetitive work and run 24 hours a day." },
-        { id: "wholesale", icon: "🌿", title: "Wholesale & Distribution", desc: "Natural personal care products from India, seeking African distribution partners." },
+        { id: "admin", icon: "📋", title: "Administration Support", desc: "Professional diary, email and invoicing support, allowing you to focus on your clients and business" },
+        { id: "bizdev", icon: "📈", title: "Business Development", desc: "We identify, engage and qualify potential customers so you can focus on running your business." },
+        { id: "ai", icon: "🤖", title: "AI & Automation", desc: "Intelligent workflows that reduce repetitive tasks and help your business operate 24/7." },
+        { id: "wholesale", icon: "🌿", title: "Wholesale & Distribution", desc: "An established and successful Indian manufacturer of natural personal care products is seeking wholesale, retail and distribution partners throughout Africa." },
     ];
 
     return (
@@ -20,11 +20,11 @@ export default function HomePage({ navigate }) {
                         <em>Grow Your Business.</em>
                     </h1>
                     <p>
-                        Many business owners spend too much time on administration, repetitive tasks and customer acquisition. We help you become more efficient — because sometimes saving time is more profitable than chasing more sales.
+                        Many business owners spend too much time on administration, repetitive tasks and finding new customers. We help you become more efficient because sometimes saving time and reducing costs can be more profitable than chasing additional sales.
                     </p>
                     <div className="home-cta">
                         <button type="button" className="btn-gold" onClick={() => navigate("admin")}>Explore Services</button>
-                        <button type="button" className="btn-ghost" onClick={() => navigate("contact")}>Book a Free Call</button>
+                        <button type="button" className="btn-ghost" onClick={() => navigate("contact")}>Let’s Have a Chat</button>
                     </div>
                 </div>
             </div>
@@ -32,10 +32,10 @@ export default function HomePage({ navigate }) {
             {/* Stats */}
             <div className="stat-strip">
                 {[
-                    { n: "5–10h", l: "Saved Per Week" },
+                    { n: "5–10 Hours", l: "Saved Per Week" },
                     { n: "3×", l: "Faster Lead Response" },
                     { n: "24/7", l: "AI Automation" },
-                    { n: "Africa", l: "Distribution Network" },
+                    { n: "African", l: "Distribution Partners" },
                 ].map(s => (
                     <div className="stat-item" key={s.l}>
                         <div className="stat-num">{s.n}</div>

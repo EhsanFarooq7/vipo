@@ -29,7 +29,7 @@ body {
   background: var(--dark);
   color: var(--text);
   min-height: 100vh;
-  overflow-x: hidden;
+  
 }
 
 /* ── NAV ── */
@@ -606,7 +606,7 @@ body {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+
   animation: popIn .3s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes popIn {
