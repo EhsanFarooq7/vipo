@@ -995,4 +995,82 @@ body {
     padding: 10px 12px !important; /* Slimmer buttons for small screens */
   }
 }
+
+/* ── CALENDLY MODAL STYLES ── */
+.calendly-drawer {
+  max-width: 820px !important;
+}
+
+.calendar-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  z-index: 10;
+}
+
+.calendar-loader p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(201, 169, 110, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--gold);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── REQUEST INFO FORM STYLES ── */
+.input-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  background: rgba(201, 169, 110, 0.04);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+}
+
+.form-input::placeholder {
+  color: #4b5563;
+}
+
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
 `;
