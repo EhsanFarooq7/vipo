@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function CalendlyModal({ onClose }) {
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ export default function CalendlyModal({ onClose }) {
     };
   }, []);
 
-  return (
+  return createPortal(
     <div
       className="form-drawer-bg"
       onClick={(e) => {
@@ -59,6 +60,7 @@ export default function CalendlyModal({ onClose }) {
           ></iframe>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

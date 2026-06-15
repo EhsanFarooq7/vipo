@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export default function RequestInfoModal({ onClose }) {
   const [formData, setFormData] = useState({
@@ -67,7 +68,7 @@ export default function RequestInfoModal({ onClose }) {
     }
   };
 
-  return (
+  return createPortal(
     <div
       className="form-drawer-bg"
       onClick={(e) => {
@@ -198,6 +199,7 @@ export default function RequestInfoModal({ onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

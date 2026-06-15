@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CSS } from "./CSS";
-import { NAV, SERVICE_DATA } from "./data/services";
+import { NAV } from "./data/services";
 import HomePage from "./Home";
 import ContactPage from "./Contact";
 import ServicePage from "./components/ServicesPage";

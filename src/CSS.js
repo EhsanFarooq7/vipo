@@ -589,18 +589,18 @@ body {
   z-index: 500;
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: fadeIn .2s ease;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .form-drawer {
-  position: absolute;
-  top: 80px; left: 50%; 
-  bottom: 40px;
-  transform: translateX(-50%);
+  position: relative;
   width: calc(100% - 40px);
   max-width: 600px;
-  max-height: calc(100vh - 120px);
+  max-height: 90vh;
   background: var(--navy);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -610,8 +610,8 @@ body {
   animation: popIn .3s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes popIn {
-  from { opacity: 0; transform: translateX(-50%) scale(0.50); }
-  to   { opacity: 1; transform: translateX(-50%) scale(1); }
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 .drawer-handle {
@@ -884,34 +884,30 @@ body {
   /* 1. Ensure the backdrop spans the entire mobile viewport screen perfectly */
   .form-drawer-bg {
     position: fixed !important;
-    top: auto !important;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    display: flex !important;
+    align-items: flex-end !important; /* Force drawer to start at the bottom */
+    justify-content: center !important;
     z-index: 99999 !important; /* Forces it above everything else on the page */
   }
 
   /* 2. Force the drawer to sit beautifully at the bottom of the screen */
   .form-drawer {
-    position: fixed !important;
-    top:0 !important; /* Let bottom positioning take precedence */
-    left: 0 !important;
-    right: 0 !important;
+    position: relative !important;
+    top: auto !important;
     bottom: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-
-    /* This gives it a perfect, predictable height (80% of screen height) */
-    height: 80vh !important;
-    max-height: 80vh !important;
-
-    /* Reset desktop alignments */
+    left: auto !important;
     transform: none !important;
     margin: 0 !important;
-
-    /* Styling adjustments */
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 85vh !important;
+    max-height: 85vh !important;
     border-radius: 24px 24px 0 0 !important;
     border-left: none !important;
     border-right: none !important;
@@ -922,69 +918,13 @@ body {
     animation: mobileSlideUp .3s cubic-bezier(.22, 1, .36, 1) forwards !important;
   }
 
-  /* 3. New mobile animation without desktop's translateX conflict */
+  /* 3. Slide up from bottom animation */
   @keyframes mobileSlideUp {
     from { transform: translateY(100%); opacity: 0; }
     to   { transform: translateY(0); opacity: 1; }
   }
 
   /* 4. Fix paddings so text doesn't touch phone edges */
-  .drawer-handle,
-  .form-inner {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-
-  /* 1. Reset the backdrop container layout */
-  .form-drawer-bg {
-    display: flex !important;
-    align-items: flex-end !important; /* Forces layout to start at the bottom screen edge */
-    justify-content: center !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* 2. Completely redefine the drawer for tiny screens */
-  .form-drawer {
-    /* Kill all absolute/desktop positioning completely */
-    position: relative !important;
-    top: auto !important;
-    bottom: 0 !important;
-    left: auto !important;
-    transform: none !important; /* Removes the desktop translateX(-50%) which breaks 320px widths */
-    margin: 0 !important;
-
-    /* Force size fitting for 320px - 425px screens */
-    width: 100vw !important;
-    max-width: 100vw !important;
-    height: 85vh !important;     /* Forces it to open up 85% of the screen height */
-    max-height: 85vh !important;
-
-    /* Clean up mobile borders */
-    border-radius: 20px 20px 0 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
-
-    /* Fresh animation built only for small mobile screens */
-    animation: mobileSlideUp 0.3s cubic-bezier(.22,1,.36,1) forwards !important;
-  }
-
-  /* 3. Dedicated mobile animation keyframe */
-  @keyframes mobileSlideUp {
-    from { transform: translateY(100%); }
-    to   { transform: translateY(0); }
-  }
-
-  /* 4. Shrink internal spacing so text doesn't clip on 320px screens */
   .drawer-handle {
     padding: 16px 20px 12px !important;
   }
@@ -992,7 +932,7 @@ body {
     padding: 16px 20px 30px !important;
   }
   .opt {
-    padding: 10px 12px !important; /* Slimmer buttons for small screens */
+    padding: 10px 12px !important;
   }
 }
 
