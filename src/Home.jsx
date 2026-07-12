@@ -3,7 +3,7 @@ export default function HomePage({ navigate }) {
         { id: "admin", icon: "📋", title: "Administration Support", desc: "Professional diary, email and invoicing support, allowing you to focus on your clients and business" },
         { id: "bizdev", icon: "📈", title: "Business Development", desc: "We identify, engage and qualify potential customers so you can focus on running your business." },
         { id: "ai", icon: "🤖", title: "AI & Automation", desc: "Intelligent workflows that reduce repetitive tasks and help your business operate 24/7." },
-        { id: "wholesale", icon: "🌿", title: "Wholesale & Distribution", desc: "An established and successful Indian manufacturer of natural personal care products is seeking wholesale, retail and distribution partners throughout Africa." },
+        { id: "wholesale", icon: "🌿", title: "Wholesale & Distribution", desc: "Premium natural skincare and personal care from the UK. We are seeking distributors, pharmacies, retailers and partners across Kenya." },
     ];
 
     return (

@@ -28,10 +28,10 @@ export default function ServicePage({ pageId, navigate }) {
                 <div className="cta-band">
                     <div className="cta-band-text">
                         <h3>Ready to get started?</h3>
-                        <p>Answer 4 quick questions to check whether this service is right for your business. It takes less than 2 minutes.</p>
+                        <p>Answer a few quick questions to check whether this service is right for your business. It takes less than 2 minutes.</p>
                     </div>
                     <button type="button" className="btn-gold" onClick={() => setDrawerOpen(true)}>
-                        Check My Eligibility →
+                        {d.ctaText || "Check My Eligibility →"}
                     </button>
                 </div>
 
@@ -39,17 +39,45 @@ export default function ServicePage({ pageId, navigate }) {
                 <div className="info-split">
                     <div className="info-block">
                         <h3>{d.about.heading}</h3>
-                        <p>{d.about.body}</p>
-                        <p>{d.about.body2}</p>
+                        {d.about.body && <p>{d.about.body}</p>}
+                        {d.about.body2 && <p>{d.about.body2}</p>}
+                        
+                        {d.idealPartners && (
+                            <div className="ideal-partners-section">
+                                <h4 className="partners-heading">We are looking to work with:</h4>
+                                <div className="partners-grid">
+                                    {d.idealPartners.map((p, i) => (
+                                        <div className="partner-tag" key={i}>
+                                            <span className="tag-bullet">✦</span> {p}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
-                    <ul className="feature-list">
-                        {d.features.map((f, i) => (
-                            <li key={i}>
-                                <span className="feat-icon">{f.icon}</span>
-                                {f.text}
-                            </li>
-                        ))}
-                    </ul>
+
+                    <div className="features-block">
+                        <h3 className="features-block-title">{d.featureTitle || "Why Partner With Us"}</h3>
+                        {d.featureStyle === "grid" ? (
+                            <div className="feature-grid-boxes">
+                                {d.features.map((f, i) => (
+                                    <div className="feature-box" key={i}>
+                                        <span className="feat-box-icon">{f.icon}</span>
+                                        <h4>{f.text}</h4>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <ul className="feature-list">
+                                {d.features.map((f, i) => (
+                                    <li key={i}>
+                                        <span className="feat-icon">{f.icon}</span>
+                                        {f.text}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
                 </div>
 
                 {/* How it works */}
@@ -72,7 +100,9 @@ export default function ServicePage({ pageId, navigate }) {
                 {/* Second CTA */}
                 <div style={{ textAlign: "center", padding: "20px 0" }}>
                     <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginBottom: 20, fontWeight: 300 }}>Not sure if this is right for you? Our eligibility check will tell you in under 2 minutes.</p>
-                    <button type="button" className="btn-gold" onClick={() => setDrawerOpen(true)}>Check My Eligibility →</button>
+                    <button type="button" className="btn-gold" onClick={() => setDrawerOpen(true)}>
+                        {d.ctaText || "Check My Eligibility →"}
+                    </button>
                     <span style={{ display: "inline-block", marginLeft: 16 }}>
                         <button type="button" className="btn-ghost" onClick={() => navigate("contact")}>Talk to Us Instead</button>
                     </span>
