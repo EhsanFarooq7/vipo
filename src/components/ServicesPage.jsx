@@ -41,7 +41,7 @@ export default function ServicePage({ pageId, navigate }) {
                         <h3>{d.about.heading}</h3>
                         {d.about.body && <p>{d.about.body}</p>}
                         {d.about.body2 && <p>{d.about.body2}</p>}
-                        
+
                         {d.idealPartners && (
                             <div className="ideal-partners-section">
                                 <h4 className="partners-heading">We are looking to work with:</h4>
